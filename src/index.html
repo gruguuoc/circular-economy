@@ -8,34 +8,52 @@
     <title>UOC Boilerplate</title>
   </head>
   <body>
-    <div class="uoc-container">
-      <picture>
-        <source srcset="./assets/images/logo.png?as=webp&width=350" type="image/webp" />
-        <img src="./assets/images/logo.png?width=350" alt="Universitat Oberta de Catalunya" class="uoc-logo" />
-      </picture>
-      <h1 class="uoc-title">Hello, UOC!</h1>
-      <button type="button" class="btn btn-primary">Primary</button>
+    <!-- Header -->
+    <include src="./views/header.html"></include>
 
-      <p>
-        This is a starter template for the Advanced HTML and CSS Tools courses
-        from the Master's Program in Multimedia Applications and the Master's
-        Program in Web App and Website Development at the Universitat Oberta de
-        Catalunya.
+    <!-- Main content -->
+    <div class="front-page">
+      <h1 class="front-page__title">1st Circular Economy Conference - Change Starts Here</h1>
+      <img class="front-page__logo" src="./assets/images/economia-circular.png" alt="Logo that represents circular economy" />
+      <p class="front-page__presentation">
+        Discover how the circular economy can help you save resources, create opportunities, and protect the planet.</br>
+        Explore the program, meet the speakers, and join the movement.
       </p>
-      <p class="d-inline-flex gap-1">
-        <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-          Link with href
-        </a>
-        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-          Button with data-bs-target
-        </button>
-      </p>
-      <div class="collapse" id="collapseExample">
-        <div class="card card-body">
-          Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+
+      <div id="carouselExampleFade" class="carousel carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./assets/images/talks.jpg" class="carousel-item__img rounded" alt="talks">
+            <div class="carousel-caption d-none d-md-block">
+              <p class="h1">Participants</p>
+            </div>
+          </div>
+          <div class="carousel-item rounded">
+            <img src="./assets/images/newspaper.jpg" class="carousel-item__img rounded" alt="newspaper">
+            <div class="carousel-caption d-none d-md-block">
+              <p class="h1">Articles</p>
+            </div>
+          </div>
+          <div class="carousel-item rounded">
+            <img src="./assets/images/bins.jpg" class="carousel-item__img rounded" alt="bins">
+            <div class="carousel-caption d-none d-md-block">
+              <p class="h1">Activities</p>
+            </div >
+          </div>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
+      
     </div>
+
+    <!-- Footer -->
     <include src="./views/footer.html"></include>
     <script type="module" src="./assets/scripts/main.js"></script><!-- do not remove this line! -->
   </body>
