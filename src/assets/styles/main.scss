@@ -15,17 +15,18 @@
  * see commented examples below
  */
 
-// @import "some-node-module";
-// @import "@some-company/some-node-module";
-
 // Import all of Bootstrap's CSS
 @import "bootstrap/scss/bootstrap";
+
+// Import fonts
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
 
 /**
  * Import layouts
  * It's a best practice to use a different partial for each page
  */
 
+@import "layouts/general";
 @import "layouts/home";
 
 /**

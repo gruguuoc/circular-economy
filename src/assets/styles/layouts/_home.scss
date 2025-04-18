@@ -1,9 +1,31 @@
 .front-page{
   display: grid;
   grid-template-columns: 1fr;
-  justify-items: center; /* centra horizontalmente */
+  justify-items: center;
   padding: 2rem;
   text-align: center;
+  background-image: url('../images/bg-forest.jpg');
+  background-size: cover;
+
+  &__main{
+    grid-area: main;
+    background-color: $main-bg;
+    padding: 5%;
+  }
+
+  &__logo {
+    grid-area: logo;
+  }
+
+  &__title{
+    grid-area: title;
+    font-family: $font-family-title;
+    color: $font-color;
+  }
+}
+
+.carousel{
+  max-width: 500px;
 }
 
 .carousel-item{
@@ -24,7 +46,13 @@
   #TABLET
 \*------------------------------------*/
 @media(min-width: $tablet-mq){
+  .front-page{
+    place-items: center;
 
+    grid-template-areas: 
+    "title logo "
+    "main logo";
+  }
 }
 
 /*------------------------------------*\
