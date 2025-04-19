@@ -1,0 +1,10 @@
+.header{
+    height: 120px;
+    &__logo{
+        max-width: 80px;
+    }
+}
+
+.btn{
+    border: 1px solid $font-color;
+}

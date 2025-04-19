@@ -2,30 +2,46 @@
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
-  padding: 2rem;
+  padding: 120px 20px 20px 20px;
   text-align: center;
   background-image: url('../images/bg-forest.jpg');
   background-size: cover;
 
-  &__main{
-    grid-area: main;
-    background-color: $main-bg;
-    padding: 5%;
+  grid-template-areas: 
+  "title"
+  "logo"
+  "presentation"
+  "carousel";
+
+  &__logo{
+    grid-area: logo;
+    width: 70%;
   }
 
-  &__logo {
-    grid-area: logo;
+  &__presentation{
+    grid-area: presentation;
+    background-color: $main-bg;
+    box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.5);
+  }
+
+  &__presentation--bold{
+    color: $main-color;
   }
 
   &__title{
     grid-area: title;
     font-family: $font-family-title;
     color: $font-color;
+    text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.6);
+    
   }
+
+  
 }
 
 .carousel{
   max-width: 500px;
+  grid-area: carousel;
 }
 
 .carousel-item{
@@ -50,8 +66,14 @@
     place-items: center;
 
     grid-template-areas: 
-    "title logo "
-    "main logo";
+    "title title"
+    "presentation logo"
+    "carousel logo";
+
+    &__logo{
+      grid-area: logo;
+      width: 100%;
+    }
   }
 }
 
@@ -59,5 +81,12 @@
 #DESKTOP
 \*------------------------------------*/
 @media(min-width: $desktop-mq){
+  .front-page{
+    place-items: center;
 
+    grid-template-areas: 
+    "title logo "
+    "presentation logo"
+    "carousel logo";
+  }
 }

@@ -1,0 +1,14 @@
+.footer{
+    &__logo{
+        max-width: 80px;
+    }
+
+    &__social-networks{
+        color: $main-color;
+        font-size: 2rem;
+    }
+}
+
+.btn{
+    border: 1px solid $font-color;
+}

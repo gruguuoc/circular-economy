@@ -17,6 +17,7 @@
 
 // Import all of Bootstrap's CSS
 @import "bootstrap/scss/bootstrap";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"); //Bootstrap icons
 
 // Import fonts
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
@@ -28,6 +29,8 @@
 
 @import "layouts/general";
 @import "layouts/home";
+@import "layouts/header";
+@import "layouts/footer";
 
 /**
  * Do NOT include anything else in this file!
