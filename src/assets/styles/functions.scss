@@ -1,0 +1,6 @@
+@function add-alpha($color, $alpha) {
+    @if ($alpha < 0) or ($alpha > 1) {
+      @error "El valor del alfa debe estar entre 0 y 1.";
+    }
+    @return rgba($color, $alpha);
+}
