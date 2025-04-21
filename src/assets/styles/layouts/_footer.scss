@@ -2,11 +2,11 @@
     &__logo{
         max-width: 80px;
     }
+}
 
-    &__social-networks{
-        color: $main-color;
-        font-size: 2rem;
-    }
+.social-network-icon{
+    color: $main-color;
+    font-size: 2rem;
 }
 
 .btn{
