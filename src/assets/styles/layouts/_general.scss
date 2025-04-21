@@ -4,8 +4,13 @@
 }
 
 .title{
+    z-index: 3;
     font-family: $font-family-title;
     color: $main-color;
+
+    &--light{
+        color: white;
+    }
 }
 
 

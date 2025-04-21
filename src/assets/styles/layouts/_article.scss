@@ -1,0 +1,26 @@
+/*------------------------------------*\
+  #Article
+\*------------------------------------*/
+.article{
+    padding: 120px 0px 20px 0px;
+    margin: 0% 10% 0% 10%;
+}
+
+.article-header{
+    &__img{
+        height: 60vh;  
+        width: 100%;
+        object-fit: cover;
+    }
+
+    &__cover{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); // Aquí ajustas la oscuridad
+        z-index: 1;
+    }
+}
+
