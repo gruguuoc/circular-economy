@@ -11,6 +11,13 @@
         border: 2px solid $main-color;
         padding: 1rem;
         border-radius: 8px;
+        margin-bottom: 1rem;
+    }
+
+    &__img{
+        width: 70%;
+        border-radius: 8px;
+        margin-bottom: 2rem;
     }
 }
 
@@ -29,6 +36,16 @@
         height: 100%;
         background-color: rgba(0, 0, 0, 0.5); // Aquí ajustas la oscuridad
         z-index: 1;
+    }
+}
+
+.unordered-article-list{
+    list-style: none;
+
+    &__counter{
+        border: 2px solid $main-color;
+        border-radius: 50%;
+        text-align: center;
     }
 }
 
