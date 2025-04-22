@@ -2,8 +2,16 @@
   #Article
 \*------------------------------------*/
 .article{
-    padding: 120px 0px 20px 0px;
+    padding: 60px 0px 20px 0px;
     margin: 0% 10% 0% 10%;
+    text-align: justify;
+
+    &__section:has(.article__list) {
+        background-color: $font-color;
+        border: 2px solid $main-color;
+        padding: 1rem;
+        border-radius: 8px;
+    }
 }
 
 .article-header{
