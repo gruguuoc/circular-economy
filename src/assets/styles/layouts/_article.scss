@@ -6,6 +6,12 @@
     margin: 0% 10% 0% 10%;
     text-align: justify;
 
+    &__section{
+        container-type: inline-size;
+        container-name: article-section-container;
+        width: 100%;       
+    }
+
     &__section:has(.article__list) {
         border-left: 3px solid $main-color;
         padding: 1rem;
@@ -22,6 +28,7 @@
         font-weight: bold;
         background-color: $main-color;
         color: $font-color;
+        text-align: center;
     }
 
     :is(&__list, &__img){
@@ -49,11 +56,11 @@
     }
 }
 
-:is(.article__list, .unordered-article-list){
+:is(.article__list, .ordered-article-list){
     list-style: none;
 }
 
-.unordered-article-list{
+.ordered-article-list{
     &__counter{
         border: 2px solid $main-color;
         border-radius: 50%;
@@ -62,18 +69,15 @@
 }
 
 /*------------------------------------*\
-#TABLET-DESKTOP LAYOUT
+  #Container Queries
 \*------------------------------------*/
-
-/*------------------------------------*\
-#TABLET - DESKTOP
-\*------------------------------------*/
-@media(min-width: $tablet-mq){
+@container article-section-container (min-width: 1250px) {
     .article{
         &__list{
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
+            gap: 1cqw;
         }
     }
 }

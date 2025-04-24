@@ -4,6 +4,8 @@
 .main-content{
     padding: 120px 0px 20px 0px;
     margin: 0% 10% 0% 10%;
+    container-type: inline-size;
+    container-name: card-container;
 }
 
 .card{
@@ -13,22 +15,15 @@
 }
 
 /*------------------------------------*\
-#TABLET-DESKTOP LAYOUT
+  #Container Queries
 \*------------------------------------*/
-
-/*------------------------------------*\
-#TABLET
-\*------------------------------------*/
-@media(min-width: $tablet-mq){
+@container card-container (min-width: 800px) {
     .card{
         flex: 0 0 calc(50% - 2rem);
     }
 }
 
-/*------------------------------------*\
-#DESKTOP
-\*------------------------------------*/
-@media(min-width: $desktop-mq){
+@container card-container (min-width: 1240px) {
     .card{
         flex: 0 0 calc(33.333% - 2rem);
     }

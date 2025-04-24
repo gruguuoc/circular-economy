@@ -3,8 +3,10 @@
 \*------------------------------------*/
 .front-page{
   padding: 120px 20px 20px 20px;
-  text-align: center;
+  text-align: justify;
   background-image: url('../images/bg-coins.png');
+  container-type: inline-size;
+  container-name: front-page-container;
 
   background-position:90% 20%;
   background-size: auto;
@@ -25,6 +27,10 @@
     text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.6);
     margin-bottom: 20px; //Separation between elements in older browsers
   }
+
+  &__img{
+    width: 70%;
+  }
 }
 
 .carousel{
@@ -39,6 +45,16 @@
     height: auto;      
     object-fit: cover;
     filter: brightness(50%);
+  }
+}
+
+/*------------------------------------*\
+  #Container Queries
+\*------------------------------------*/
+@container front-page-container (min-width: 500px) {
+  .front-page__presentation {
+    font-size: 1.2cqw;
+    text-align: center;
   }
 }
 
@@ -70,10 +86,12 @@
     grid-template-columns: 1fr;
     place-items: center;
     row-gap:20px;
+    column-gap: 40px;
    
     grid-template-areas: 
     "title"
     "presentation"
+    "separator"
     "carousel";
   
     &__presentation{
