@@ -7,6 +7,7 @@
   background-image: url('../images/bg-coins.png');
   container-type: inline-size;
   container-name: front-page-container;
+  width: 100%;
 
   background-position:90% 20%;
   background-size: auto;
@@ -15,6 +16,7 @@
     background-color: add-alpha($main-bg, 0.7);
     box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.5);
     margin-bottom: 20px; //Separation between elements in older browsers
+    min-width: 50vw;
   }
 
   &__presentation--bold{
@@ -30,6 +32,19 @@
 
   &__img{
     width: 70%;
+  }
+
+  &__calendar{
+    font-weight: bold;
+    margin-bottom: 20px; //Separation between elements in older browsers
+  }
+
+  &__calendar-item{
+    background-color: add-alpha($main-bg, 0.7);
+    box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
   }
 }
 
@@ -53,7 +68,7 @@
 \*------------------------------------*/
 @container front-page-container (min-width: 500px) {
   .front-page__presentation {
-    font-size: 1.2cqw;
+    font-size: 1.8cqw;
     text-align: center;
   }
 }
@@ -84,14 +99,14 @@
   .front-page{
     display: grid;
     grid-template-columns: 1fr;
-    place-items: center;
+
     row-gap:20px;
     column-gap: 40px;
    
     grid-template-areas: 
     "title"
     "presentation"
-    "separator"
+    "calendar"
     "carousel";
   
     &__presentation{
@@ -101,19 +116,31 @@
    
     &__title{
       grid-area: title;
+      justify-self: center;
       margin-bottom: 0; //Reset
     }
   
-    &__separator{
-      grid-area: separator;
+    &__calendar{
+      margin-bottom: 0; //Reset
+      grid-area: calendar;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(150px, 1fr));
+      gap: 20px;
     }
+
   }
   
   .carousel{
     grid-area: carousel;
+    justify-self: center;
     margin-bottom: 0; //Reset
   }
 
+  /*------------------------------------*\
+    #Container Queries
+  \*------------------------------------*/
+
+  
   /*------------------------------------*\
   #TABLET-DESKTOP LAYOUT
   \*------------------------------------*/
@@ -123,24 +150,10 @@
   \*------------------------------------*/
   @media(min-width: $tablet-mq){
     .front-page{
-      place-items: center;
-
       grid-template-areas: 
       "title title"
-      "presentation separator"
-      "carousel separator";
-    }
-  }
-
-  /*------------------------------------*\
-  #DESKTOP
-  \*------------------------------------*/
-  @media(min-width: $desktop-mq){
-    .front-page{
-      grid-template-areas: 
-      "title separator"
-      "presentation separator"
-      "carousel separator";
+      "presentation calendar"
+      "carousel calendar";
     }
   }
 }
