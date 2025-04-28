@@ -26,11 +26,12 @@
  * Import layouts
  * It's a best practice to use a different partial for each page
  */
- @import "functions";
+@import "functions";
 @import "layouts/general";
 @import "layouts/home";
 @import "layouts/speakers";
 @import "layouts/article";
+@import "layouts/dashboard";
 @import "layouts/header";
 @import "layouts/footer";
 
