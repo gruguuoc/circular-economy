@@ -21,6 +21,7 @@
     }
 
     &__item{
+        background-color: lab(50% -20 60);
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -34,6 +35,10 @@
         border-radius: 10px;
         padding: 10px;
         margin: 0 auto;
+    }
+
+    :is(&__title, &__description){
+        color: lab(95.4% 2.1 6.8);
     }
 
     
@@ -61,7 +66,7 @@
         "linedb linedb";
 
 
-        &__title{
+        &__main-title{
             grid-area: title;
         }
     
@@ -81,20 +86,18 @@
             grid-area: doughnut; 
         }
 
-        &__doughnut-canva{
-            width: 27.5vw !important;
+        &__canva{
+            width: 55.5cqw !important;
             height: 100% !important;
         }
-    
     }
 
 }
 
 @media(min-width: $desktop-mq){
     .dashboard{
-
-        &__doughnut-canva{
-            width: 23.6vw !important;
+        &__canva{
+            width: 49cqw !important;
         }
     
     }

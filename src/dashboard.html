@@ -13,7 +13,7 @@
 
     <!-- Main content -->
     <div class="dashboard text-center">
-      <h1 class="dashboard__title title">Dashboard</h1>
+      <h1 class="dashboard__main-title title">Dashboard</h1>
       <p class="dashboard__introduction">
         Welcome to our Environmental Dashboard, where data meets action.
         Explore key metrics and insights that highlight the current state
@@ -30,7 +30,7 @@
               impact of different fuels, from coal to renewable energies.
             </p>
           </div>
-          <canvas id="bars"></canvas>
+          <canvas dashboard__canva id="bars"></canvas>
         </div>
       </div>
 
@@ -38,7 +38,7 @@
       <div class="dashboard__container dashboard__line">
         <div class="dashboard__item">
           <div class="dashboard__description">
-            <h2 class="dashboard__title text-center">Daily Carbon Intensity Trends</h2>
+            <h2 class="dashboard__title text-center">Daily Carbon Intensity Trends (Actual vs Forecast)</h2>
             <p>
               Visualize the fluctuations in carbon emissions per unit of electricity throughout
               the day. This graph shows real-time carbon intensity data, helping to understand
@@ -59,7 +59,7 @@
               View the real-time distribution of electricity sources for the current half-hour period, including renewable and non-renewable contributions.
             </p>
           </div>
-          <canvas class="dashboard__doughnut-canva" id="doughnut"></canvas>
+          <canvas class="dashboard__canva" id="doughnut"></canvas>
         </div>
       </div>
     </div>

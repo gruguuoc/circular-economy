@@ -28,15 +28,16 @@ async function fetchCarbonIntensityData(date) {
   try {
     const response = await fetch(`https://api.carbonintensity.org.uk/intensity/date/${date}`);
     const data = await response.json();
-    console.log(data);
     return data.data.map(period => ({
       time: period.from.slice(11, 16),
-      intensity: period.intensity.actual
+      actual: period.intensity.actual,
+      forecast: period.intensity.forecast
     }));
   } catch (error) {
     console.error("Error fetching carbon intensity data:", error);
   }
 }
+
 
 async function renderGenerationMixChart() {
   const generationMix = await fetchGenerationMix();
@@ -54,7 +55,14 @@ async function renderGenerationMixChart() {
         ]
       },
       options: {
-        radius: '50%'
+        radius: '50%',
+        plugins: {
+          legend: {
+            labels: {
+              color: 'white'
+            }
+          }
+        }
 
       }
     }
@@ -77,42 +85,28 @@ async function renderIntensityFactorsChart() {
         ]
       },
       options: {
-        plugins: {}
-      }
-    }
-  );
-}
-
-async function renderCarbonIntensityChart(date) {
-  const intensityData = await fetchCarbonIntensityData(date);
-  console.log(intensityData);
-  new Chart(document.getElementById('line'),
-    {
-      type: 'line',
-      data: {
-        labels: intensityData.map(d => d.time),
-        datasets: [{
-          label: 'Carbon Intensity (gCO₂/kWh)',
-          data: intensityData.map(d => d.intensity),
-          fill: true,
-          borderColor: 'rgb(75, 192, 192)',
-          backgroundColor: 'rgba(75, 192, 192, 0.2)',
-          tension: 0.4
-        }]
-      },
-      options: {
-        responsive: true,
+        plugins: {
+          legend: {
+            labels: {
+              color: 'white'
+            }
+          }
+        },
         scales: {
           x: {
-            title: {
-              display: true,
-              text: 'Time of Day'
+            ticks:{
+              color: 'white'
+            },
+            grid: {
+              color: 'white'
             }
           },
           y: {
-            title: {
-              display: true,
-              text: 'gCO₂ per kWh'
+            ticks:{
+              color: 'white'
+            },
+            grid: {
+              color: 'white'
             }
           }
         }
@@ -121,7 +115,85 @@ async function renderCarbonIntensityChart(date) {
   );
 }
 
-(async function() {
+async function renderCarbonIntensityChart(date) {
+  const intensityData = await fetchCarbonIntensityData(date);
+
+  const ctx = document.getElementById('line');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: intensityData.map(d => d.time),
+      datasets: [
+        {
+          label: 'Forecast Intensity (gCO₂/kWh)',
+          data: intensityData.map(d => d.forecast),
+          backgroundColor: 'rgba(255, 99, 132, 0.5)',
+          stack: 'carbon',
+          yAxisID: 'y',
+          type: 'bar'
+        },
+        {
+          label: 'Actual Intensity (gCO₂/kWh)',
+          data: intensityData.map(d => d.actual),
+          borderColor: 'rgb(248, 255, 255)',
+          backgroundColor: 'rgb(253, 253, 253)',
+          tension: 0.4,
+          fill: false,
+          yAxisID: 'y',
+          type: 'line'
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      interaction: {
+        mode: 'index',
+        intersect: false
+      },
+      stacked: true,
+      plugins: {
+        legend: {
+          labels: {
+            color: 'white'
+          }
+        }
+      },
+      scales: {
+        x: {
+          stacked: true,
+          ticks:{
+            color: 'white'
+          },
+          grid: {
+            color: 'white'
+          },
+          title: {
+            display: true,
+            text: 'Time of Day',
+            color: 'white'
+          }
+        },
+        y: {
+          stacked: true,
+          ticks:{
+            color: 'white'
+          },
+          grid: {
+            color: 'white'
+          },
+          title: {
+            display: true,
+            text: 'gCO₂ per kWh',
+            color: 'white'
+          }
+        }
+      }
+    }
+  });
+}
+
+function renderDashboard(){
   const today = new Date();
   const year = today.getFullYear();
   const month = String(today.getMonth() + 1).padStart(2, '0');
@@ -131,4 +203,9 @@ async function renderCarbonIntensityChart(date) {
   renderGenerationMixChart();
   renderIntensityFactorsChart();
   renderCarbonIntensityChart(formattedDate);
+}
+
+
+(async function() {
+  renderDashboard()
 })();
