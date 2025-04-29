@@ -7,6 +7,13 @@
     display: grid;
     gap: 20px;
 
+    grid-template-areas:
+    "title"
+    "introduction"
+    "bars"
+    "doughnut"
+    "linedb";
+
     &__container{
         container-name: db-container;
         container-type: inline-size;
@@ -29,26 +36,7 @@
         margin: 0 auto;
     }
 
-    &__title{
-        grid-area: title;
-    }
-
-    &__introduction{
-        grid-area: introduction;
-    }
-
-    &__bars{
-        grid-area: bars;
-    }
-
-    &__line{
-        grid-area: linedb;
-    }
-
-    &__doughnut{
-        grid-area: doughnut; 
-    }
-
+    
     /*------------------------------------*\
     #Container Queries
     \*------------------------------------*/
@@ -71,6 +59,44 @@
         "introduction introduction"
         "bars doughnut"
         "linedb linedb";
+
+
+        &__title{
+            grid-area: title;
+        }
+    
+        &__introduction{
+            grid-area: introduction;
+        }
+    
+        &__bars{
+            grid-area: bars;
+        }
+    
+        &__line{
+            grid-area: linedb;
+        }
+    
+        &__doughnut{
+            grid-area: doughnut; 
+        }
+
+        &__doughnut-canva{
+            width: 27.5vw !important;
+            height: 100% !important;
+        }
+    
+    }
+
+}
+
+@media(min-width: $desktop-mq){
+    .dashboard{
+
+        &__doughnut-canva{
+            width: 23.6vw !important;
+        }
+    
     }
 
 }

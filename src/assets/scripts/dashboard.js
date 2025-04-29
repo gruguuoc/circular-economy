@@ -28,9 +28,10 @@ async function fetchCarbonIntensityData(date) {
   try {
     const response = await fetch(`https://api.carbonintensity.org.uk/intensity/date/${date}`);
     const data = await response.json();
+    console.log(data);
     return data.data.map(period => ({
       time: period.from.slice(11, 16),
-      intensity: period.intensity.forecast
+      intensity: period.intensity.actual
     }));
   } catch (error) {
     console.error("Error fetching carbon intensity data:", error);
@@ -53,7 +54,8 @@ async function renderGenerationMixChart() {
         ]
       },
       options: {
-        radius: '50%',
+        radius: '50%'
+
       }
     }
   );

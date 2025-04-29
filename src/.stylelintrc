@@ -5,7 +5,6 @@
     "selector-max-id": 0,
     "selector-max-type": 0,
     "max-nesting-depth": 2,
-    "declaration-no-important": true,
     "selector-max-attribute": 0,
     "selector-max-combinators": 0,
     "selector-max-universal": 1
