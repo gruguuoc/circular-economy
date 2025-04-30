@@ -45,6 +45,15 @@
     border-radius: 10px;
     padding: 10px;
     text-align: center;
+    container-type: inline-size;
+    container-name: calendar-item-container;
+    width: 100%;
+    min-width: 15vw;
+  }
+
+  &__calendar-item-body{
+    border-radius: 10px;
+    border: 1px solid $main-color;
   }
 }
 
@@ -70,6 +79,16 @@
   .front-page__presentation {
     font-size: 1.8cqw;
     text-align: center;
+  }
+}
+
+@container calendar-item-container (min-width: 200px) {
+  .front-page__calendar-item-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    column-gap: 20px;
   }
 }
 
