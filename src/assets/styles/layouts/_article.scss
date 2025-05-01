@@ -1,84 +1,95 @@
 /*------------------------------------*\
   #Article
 \*------------------------------------*/
-.article{
+
+/* Declaring different layers being used.*/
+@layer defaults, components, utilities;
+
+/* Defaults Layer */
+@layer defaults {
+  .article {
     padding: 60px 0px 20px 0px;
     margin: 0% 10% 0% 10%;
     text-align: justify;
 
-    &__section{
-        container-type: inline-size;
-        container-name: article-section-container;
-        width: 100%;       
+    &__section {
+      container-type: inline-size;
+      container-name: article-section-container;
+      width: 100%;
     }
 
-    &__section:has(.article__list) {
-        border-left: 3px solid $main-color;
-        padding: 1rem;
-        margin-bottom: 1rem;
+    &__img {
+      width: 70%;
+      margin-bottom: 2rem;
     }
 
-    &__img{
-        width: 70%;
-        margin-bottom: 2rem;
+    &__list {
+      padding: 10px 10px;
+      font-weight: bold;
+      background-color: $main-color;
+      color: $font-color;
+      text-align: center;
     }
 
-    &__list{
-        padding: 10px 10px;
-        font-weight: bold;
-        background-color: $main-color;
-        color: $font-color;
-        text-align: center;
+    :is(&__list, &__img) {
+      border: 2px solid $main-color;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  .article-header {
+    &__img {
+      height: 60vh;
+      width: 100%;
+      object-fit: cover;
     }
 
-    :is(&__list, &__img){
-        border: 2px solid $main-color;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    &__cover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
     }
-}
+  }
 
-.article-header{
-    &__img{
-        height: 60vh;  
-        width: 100%;
-        object-fit: cover;
-    }
-
-    &__cover{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 1;
-    }
-}
-
-:is(.article__list, .ordered-article-list){
+  :is(.article__list, .ordered-article-list) {
     list-style: none;
+  }
 }
 
-.ordered-article-list{
-    &__counter{
-        border: 2px solid $main-color;
-        border-radius: 50%;
-        text-align: center;
+/* Components Layer */
+@layer components {
+  .article {
+    &__section:has(.article__list) {
+      border-left: 3px solid $main-color;
+      padding: 1rem;
+      margin-bottom: 1rem;
     }
-}
+  }
 
-/*------------------------------------*\
-  #Container Queries
-\*------------------------------------*/
-@container article-section-container (min-width: 1250px) {
-    .article{
-        &__list{
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 1cqw;
-        }
+  .ordered-article-list {
+    &__counter {
+      border: 2px solid $main-color;
+      border-radius: 50%;
+      text-align: center;
     }
+  }
 }
 
+/* Utilities Layer */
+@layer utilities {
+  @container article-section-container (min-width: 1250px) {
+    .article {
+      &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 1cqw;
+      }
+    }
+  }
+}

@@ -1,105 +1,106 @@
 /*------------------------------------*\
   #Dashboard
 \*------------------------------------*/
-.dashboard{
+
+/* Declaring different layers being used.*/
+@layer defaults, components, utilities;
+
+/* Defaults Layer */
+@layer defaults {
+  .dashboard {
     padding: 120px 20px 20px 20px;
     text-align: justify;
     display: grid;
     gap: 20px;
 
     grid-template-areas:
-    "title"
-    "introduction"
-    "bars"
-    "doughnut"
-    "linedb";
+      "title"
+      "introduction"
+      "bars"
+      "doughnut"
+      "linedb";
 
-    &__container{
-        container-name: db-container;
-        container-type: inline-size;
-        width: 100%;
+    &__container {
+      container-name: db-container;
+      container-type: inline-size;
+      width: 100%;
     }
 
-    &__item{
-        background-color: lab(50% -20 60);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: justify;
-        box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.5);
-        
-        width: 100%;
-        max-width: 100%;
-        border: 1px solid $main-color;
-        border-radius: 10px;
-        padding: 10px;
-        margin: 0 auto;
+    &__item {
+      background-color: lab(50% -20 60);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: justify;
+      box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.5);
+
+      width: 100%;
+      max-width: 100%;
+      border: 1px solid $main-color;
+      border-radius: 10px;
+      padding: 10px;
+      margin: 0 auto;
     }
 
-    :is(&__title, &__description){
-        color: lab(95.4% 2.1 6.8);
+    :is(&__title, &__description) {
+      color: lab(95.4% 2.1 6.8);
     }
-
-    
-    /*------------------------------------*\
-    #Container Queries
-    \*------------------------------------*/
-    @container db-container (min-width: 1500px) {
-        &__item{
-            flex-direction: row;
-            height: 70cqh;
-        }
-    }
+  }
 }
 
-/*------------------------------------*\
-#TABLET-DESKTOP LAYOUT
-\*------------------------------------*/
-@media(min-width: $tablet-mq){
-    .dashboard{
-
-        grid-template-areas:
+/* Components Layer */
+@layer components {
+  @media (min-width: $tablet-mq) {
+    .dashboard {
+      grid-template-areas:
         "title title"
         "introduction introduction"
         "bars doughnut"
         "linedb linedb";
 
+      &__main-title {
+        grid-area: title;
+      }
 
-        &__main-title{
-            grid-area: title;
-        }
-    
-        &__introduction{
-            grid-area: introduction;
-        }
-    
-        &__bars{
-            grid-area: bars;
-        }
-    
-        &__line{
-            grid-area: linedb;
-        }
-    
-        &__doughnut{
-            grid-area: doughnut; 
-        }
+      &__introduction {
+        grid-area: introduction;
+      }
 
-        &__canva{
-            width: 55.5cqw !important;
-            height: 100% !important;
-        }
+      &__bars {
+        grid-area: bars;
+      }
+
+      &__line {
+        grid-area: linedb;
+      }
+
+      &__doughnut {
+        grid-area: doughnut;
+      }
+
+      &__canva {
+        width: 55.5cqw !important;
+        height: 100%  !important;
+      }
     }
+  }
 
+  @media (min-width: $desktop-mq) {
+    .dashboard {
+      &__canva {
+        width: 49cqw  !important;
+      }
+    }
+  }
 }
 
-@media(min-width: $desktop-mq){
-    .dashboard{
-        &__canva{
-            width: 49cqw !important;
-        }
-    
+/* Utilities Layer */
+@layer utilities {
+  @container db-container (min-width: 1500px) {
+    .dashboard__item {
+      flex-direction: row;
+      height: 70cqh;
     }
-
+  }
 }

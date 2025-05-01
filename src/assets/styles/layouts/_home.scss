@@ -170,7 +170,7 @@
   @media(min-width: $tablet-mq){
     .front-page{
       grid-template-areas: 
-      "title title"
+      "title calendar"
       "presentation calendar"
       "carousel calendar";
     }

@@ -13,16 +13,32 @@ $mqMinWidth: 420px;
 $desktop-mq: 1024px;
 $tablet-mq: 768px;
 
-//Bootstrap Overrides
+/*------------------------------------*\
+  #Bootstrap Overrides
+\*------------------------------------*/
+//Colors
 $theme-colors: (
- "primary": $main-color
+ "primary": $main-color,
+ "secondary":  $masterbrand,
 );
 
+//Font family and size
+$font-size-base: 1.125rem; 
 $font-family-sans-serif: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
   "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
   "Segoe UI Symbol";
 $font-family-serif: "Merriweather", serif;
-
 $font-family-title: "Archivo Black", sans-serif;
+
+//Buttons
+$btn-font-weight: 600;
+$btn-border-radius: 0.5rem;
+$btn-padding-y: 0.5rem;
+$btn-padding-x: 1rem;
+
+//Cards
+$card-border-radius: 0.5rem;
+$card-border-color: $main-color;
+$card-box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.5);
 
 
