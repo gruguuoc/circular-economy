@@ -3,7 +3,7 @@
 \*------------------------------------*/
 .front-page{
   padding: 120px 20px 20px 20px;
-  text-align: justify;
+  text-align: $text-align-default;
   background-image: url('../images/bg-coins.png');
   container-type: inline-size;
   container-name: front-page-container;
@@ -14,7 +14,7 @@
 
   &__presentation{
     background-color: add-alpha($main-bg, 0.7);
-    box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.5);
+    box-shadow: $padding-10 10px rgb(0, 0, 0, 0.5);
     margin-bottom: 20px; //Separation between elements in older browsers
     min-width: 50vw;
   }
@@ -26,22 +26,22 @@
   &__title{
     font-family: $font-family-title;
     color: $font-color;
-    text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.6);
+    text-shadow: $padding-10 10px rgba(0, 0, 0, 0.6);
     margin-bottom: 20px; //Separation between elements in older browsers
   }
 
   &__img{
-    width: 70%;
+    width: $width-img;
   }
 
   &__calendar{
-    font-weight: bold;
+    font-weight: $font-weight-bold;
     margin-bottom: 20px; //Separation between elements in older browsers
   }
 
   &__calendar-item{
     background-color: add-alpha($main-bg, 0.7);
-    box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.5);
+    box-shadow: $padding-10 10px rgb(0, 0, 0, 0.5);
     border-radius: 10px;
     padding: 10px;
     text-align: center;

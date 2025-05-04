@@ -10,7 +10,7 @@
   .article {
     padding: 60px 0px 20px 0px;
     margin: 0% 10% 0% 10%;
-    text-align: justify;
+    text-align: $text-align-default;
 
     &__section {
       container-type: inline-size;
@@ -19,13 +19,13 @@
     }
 
     &__img {
-      width: 70%;
+      width: $width-img;
       margin-bottom: 2rem;
     }
 
     &__list {
-      padding: 10px 10px;
-      font-weight: bold;
+      padding: $padding-10;
+      font-weight: $font-weight-bold;
       background-color: $main-color;
       color: $font-color;
       text-align: center;
@@ -33,14 +33,14 @@
 
     :is(&__list, &__img) {
       border: 2px solid $main-color;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      border-radius: $border-radius;
+      box-shadow: 0 0 10px $shadow;
     }
   }
 
   .article-header {
     &__img {
-      height: 60vh;
+      height: $height-header;
       width: 100%;
       object-fit: cover;
     }
@@ -51,7 +51,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: $shadow;
       z-index: 1;
     }
   }

@@ -1,15 +1,30 @@
 @use "sass:color";
 
+//Colors
 $corporate: #000078;
 $masterbrand: #BDD2B6;
 $font-color: #F8EDE3;
 $main-color: #4B534B;
 $main-bg: color.scale($masterbrand, $lightness: 20%);
-$shadow: rgba(0, 0, 0, 0.5);
+$shadow: rgb(0, 0, 0, 0.5);
 
-$mqMinWidth: 420px;
+//Sizes
+$padding-default: 60px 0px 20px 0px;
+$margin-default: 0% 10% 0% 10%;
+$width-img: 70%;
+$height-header: 60vh;
+$padding-10: 10px 10px;
+$border-radius: 8px;
+$width-canva-tablet: 55.5cqw;
+$width-canva-desktop: 49cqw;
+$height-dashboard-item: 70cqh;
 
-//Media queries
+//Font
+$font-weight-bold: bold;
+$text-align-default: justify;
+$list-style-none: none;
+
+//Queries
 $desktop-mq: 1024px;
 $tablet-mq: 768px;
 
@@ -40,5 +55,13 @@ $btn-padding-x: 1rem;
 $card-border-radius: 0.5rem;
 $card-border-color: $main-color;
 $card-box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.5);
+
+//Badges
+$badge-padding-y: 0.5rem;
+$badge-padding-x: 1rem;
+$badge-font-size: 1rem;
+
+//Carousel
+$carousel-control-width: 30%;
 
 

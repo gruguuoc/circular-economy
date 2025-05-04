@@ -9,7 +9,7 @@
 }
 
 .card{
-    text-align: justify;
+    text-align: $text-align-default;
     container-type: inline-size;
     container-name: card-container;  
     width: 100%;

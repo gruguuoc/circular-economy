@@ -9,7 +9,7 @@
 @layer defaults {
   .dashboard {
     padding: 120px 20px 20px 20px;
-    text-align: justify;
+    text-align: $text-align-default;
     display: grid;
     gap: 20px;
 
@@ -32,8 +32,8 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      text-align: justify;
-      box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.5);
+      text-align: $text-align-default;
+      box-shadow: $padding-10 10px rgb(0, 0, 0, 0.5);
 
       width: 100%;
       max-width: 100%;
@@ -80,7 +80,7 @@
       }
 
       &__canva {
-        width: 55.5cqw !important;
+        width: $width-canva-tablet !important;
         height: 100%  !important;
       }
     }
@@ -89,7 +89,7 @@
   @media (min-width: $desktop-mq) {
     .dashboard {
       &__canva {
-        width: 49cqw  !important;
+        width: $width-canva-desktop  !important;
       }
     }
   }
@@ -100,7 +100,7 @@
   @container db-container (min-width: 1500px) {
     .dashboard__item {
       flex-direction: row;
-      height: 70cqh;
+      height: $height-dashboard-item;
     }
   }
 }
